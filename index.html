@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigação policial</title>
+</head>
+<style>
+    h1 {
+        color: rgb(255, 255, 255);
+        text-align: left;
+
+    }
+
+    body {
+        background-image:
+            linear-gradient(rgba(27, 1, 1, 0.779), rgba(63, 9, 9, 0.566)),
+            url('https://as2.ftcdn.net/v2/jpg/03/86/76/69/1000_F_386766989_JXLrPnY4THDN20Jfa4C5gugyuyw9vHe5.jpg');
+        background-size: cover;
+        /* Redimensiona a imagem para cobrir toda a área */
+        background-position: center;
+        /* Centraliza a imagem */
+        background-repeat: no-repeat;
+        /* Evita repetição da imagem */
+    }
+
+    h2 {
+        color: rgb(255, 255, 255);
+    }
+
+    h3 {
+        color: rgb(255, 255, 255);
+    }
+
+    button {
+        background-color: #1f78f5;
+        /* Cor de fundo (verde) */
+        color: white;
+        /* Cor do texto */
+        border: none;
+        /* Remove a borda */
+        padding: 10px 20px;
+        /* Espaçamento interno */
+        border-radius: 5px;
+        /* Bordas arredondadas */
+        cursor: pointer;
+        /* Mostra o ícone de mão ao passar o mouse */
+        font-size: 16px;
+        /* Tamanho da fonte */
+    }
+
+    input {
+        width: 300px;
+        /* Define a largura */
+        height: 30px;
+        /* Define a altura */
+    }
+
+    img {
+
+        position: fixed;
+        /* Fixa a imagem ao lado direito */
+        top: 40%;
+        /* Centraliza verticalmente */
+        right: 0px;
+        /* Alinha à direita */
+        left: 5;
+        transform: translateY(-50%);
+        /* Ajusta o alinhamento vertical */
+        width: 800px;
+        /* Tamanho da imagem */
+        height: 1000px;
+        /* Mantém a proporção */
+    }
+
+    h2 {
+        color: rgb(255, 255, 255);
+    }
+</style>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <h1>Investigação Policial</h1>
+    <br>
+    <br>
+    <br>
+    <h2>Respondas as perguntas a seguir: </h2>
+    <br>
+    <br>
+    <br>
+    <h3>Você telefonou para a vítima?</h3>
+    <input id="p1"></input>
+    <h3>Você esteve no local do crime?</h3>
+    <input id="p2"></input>
+    <h3>Você mora perto da vítima?</h3>
+    <input id="p3"></input>
+    <h3>Você devia algo para a vítima?</h3>
+    <input id="p4"></input>
+    <h3>Você já trabalhou com a vítima?</h3>
+    <input id="p5"></input>
+    <br>
+    <br>
+    <br>
+    <button id="enviar">Enviar</button>
+    <button id="atualizar">atualizar</button>
+    <br>
+    <img src="detetive.jpg"
+        alt="essa é uma imagem de um investigador">
+
+    <script>
+
+        document.getElementById('p1').addEventListener('blur', () => {
+            if (document.getElementById('p1').value != 'sim' && document.getElementById('p1').value != null) {
+                alert("Digite 'sim' ou não para as respostas e não use letras maiúsculas ")
+                window.location.reload();
+
+            }
+        })
+        document.getElementById('p2').addEventListener('blur', () => {
+            if (document.getElementById('p2').value != 'sim') {
+                alert("Digite 'sim' ou não para as respostas e não use letras maiúsculas ")
+                window.location.reload();
+
+            }
+        })
+        document.getElementById('p3').addEventListener('blur', () => {
+            if (document.getElementById('p3').value != 'sim') {
+                alert("Digite 'sim' ou não para as respostas e não use letras maiúsculas ")
+                window.location.reload();
+
+            }
+        })
+        document.getElementById('p4').addEventListener('blur', () => {
+            if (document.getElementById('p4').value != 'sim') {
+                alert("Digite 'sim' ou não para as respostas e não use letras maiúsculas ")
+                window.location.reload();
+
+            }
+        })
+        document.getElementById('p5').addEventListener('blur', () => {
+            if (document.getElementById('p5').value != 'sim') {
+                alert("Digite 'sim' ou não para as respostas e não use letras maiúsculas ")
+                window.location.reload();
+
+            }
+        })
+
+        let respostas = [];
+
+        document.getElementById('enviar').addEventListener('click', () => {
+            respostas = [];
+
+            if (document.getElementById('p1').value === 'sim') {
+                respostas.push(document.getElementById('p1').value)
+            }
+            if (document.getElementById('p2').value === 'sim') {
+                respostas.push(document.getElementById('p2').value)
+            }
+            if (document.getElementById('p3').value === 'sim') {
+                respostas.push(document.getElementById('p3').value)
+            }
+            if (document.getElementById('p4').value === 'sim') {
+                respostas.push(document.getElementById('p4').value)
+            }
+            if (document.getElementById('p5').value === 'sim') {
+                respostas.push(document.getElementById('p5').value)
+            }
+
+            if (respostas.length === 2) {
+                let p = document.createElement("h2")
+                p.textContent = "Suspeito"
+                document.body.appendChild(p)
+            }
+
+            if (respostas.length === 3 || respostas.length === 4) {
+                let p = document.createElement("h2")
+                p.textContent = "Cúmplice"
+                document.body.appendChild(p)
+            }
+
+            if (respostas.length === 5) {
+                let p = document.createElement("h2")
+                p.textContent = "Assassino"
+                document.body.appendChild(p)
+            }
+
+            if (respostas.length === 1 || respostas.length === 0) {
+                let p = document.createElement("h2")
+                p.textContent = "Você não é um suspeito"
+                document.body.appendChild(p)
+            }
+
+        })
+
+
+
+        document.getElementById('atualizar').addEventListener('click', () => {
+            console.log("Página recarregada");
+            window.location.reload();
+        })
+    </script>
+
+</body>
+
+</html>
