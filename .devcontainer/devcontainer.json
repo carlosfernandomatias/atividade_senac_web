@@ -1,0 +1,24 @@
+{
+    "name": "Mobile Development",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+      "ghcr.io/devcontainers/features/android-sdk:2": {},
+      "ghcr.io/devcontainers/features/node:2": {
+        "version": "18"
+      }
+    },
+    "postCreateCommand": "npm install -g expo-cli",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-vscode.vscode-react-native",
+          "dart-code.flutter",
+          "ms-python.python"
+        ]
+      }
+    },
+    "forwardPorts": [8081, 3000, 19000],
+    "remoteUser": "codespace"
+  }
+  
